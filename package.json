@@ -4,13 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "rimraf dist && tsc",
+    "dev": "cross-env NODE_ENV=development concurrently \"tsc --watch\" \"nodemon -q dist/main.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/faizan-hip/Nodejs-base-projects.git"
-
   },
   "author": "",
   "license": "ISC",
@@ -25,10 +26,17 @@
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "@types/express": "^4.17.14",
-    "@types/node": "^18.8.1",
+    "@types/node": "^18.8.2",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
+    "concurrently": "^7.4.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "eslint": "^8.24.0",
+    "helmet": "^6.0.0",
+    "nodemon": "^2.0.20",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.9.1"
   }
 }
