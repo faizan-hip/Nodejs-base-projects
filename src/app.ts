@@ -1,5 +1,6 @@
 import express, { Application } from "express";
 import bodyParser from "body-parser";
+import { authRoutes } from "./module/auth";
 
 
 
@@ -16,5 +17,14 @@ app.use(
     })
   );
 
+  app.use("/api/v1", [
+    authRoutes,
+    // adminRoutes,
+    // categoryRoutes,
+    // dishRoutes,
+    // orderRoutes,
+    // promoRoutes,
+    // userRoutes,
+  ]);
 
   export default app;

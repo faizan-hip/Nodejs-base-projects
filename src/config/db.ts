@@ -41,6 +41,6 @@ export default async (): Promise<typeof mongoose> => {
     });
   });
   
-  return mongoose.connect(dbURI, options);
+  return mongoose.connect("mongodb://localhost:27017/askip", options);
 };
 

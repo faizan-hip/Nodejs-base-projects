@@ -11,8 +11,10 @@ db()
   .then(() => {
     server.listen(port, () => {
       // serverLogger.info("Express server started on port: " + port);
+      console.log("Express server started on port: " + port)
     });
   })
   .catch((err) => {
     // dbLogger.error("Connection error: " + err);
+    console.log("error",err)
   });
