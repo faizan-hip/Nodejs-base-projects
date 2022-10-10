@@ -1,9 +1,10 @@
 // import express from "express";
 // const app = express();
 import { Server, createServer } from "http";
+import { config } from "dotenv";
 import app from "./app";
 import db from "./config/db";
-
+config()
 const server: Server = createServer(app);
 const port = Number(process.env.PORT || 9000);
 

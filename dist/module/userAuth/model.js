@@ -5,13 +5,13 @@ const mongoose_1 = require("mongoose");
 exports.DOCUMENT_NAME = "User";
 exports.COLLECTION_NAME = "users";
 const schema = new mongoose_1.Schema({
-    fullName: {
+    firstName: {
         type: mongoose_1.Schema.Types.String,
         required: true,
         trim: true,
         unique: true,
     },
-    phone: {
+    lastName: {
         type: mongoose_1.Schema.Types.String,
         required: true,
         trim: true,
@@ -22,9 +22,11 @@ const schema = new mongoose_1.Schema({
         unique: true,
         trim: true,
     },
-    isPromoValid: {
-        type: mongoose_1.Schema.Types.Boolean,
-        default: false,
+    phone: {
+        type: mongoose_1.Schema.Types.String,
+        trim: true,
+        select: false,
+        required: true,
     },
     password: {
         type: mongoose_1.Schema.Types.String,
@@ -32,32 +34,11 @@ const schema = new mongoose_1.Schema({
         select: false,
         required: true,
     },
-    forgetConfirmationCode: {
-        type: String,
-        unique: true,
-        default: false
-    },
-    forgetConfirmationCodeExpires: {
-        type: Date,
-        default: new Date
-    },
-    resetPasswordToken: {
-        type: String,
-        unique: true,
-        default: false
-    },
-    resetCodeExpires: {
-        type: Date,
-        default: new Date
-    },
-    resetPasswordExpires: {
-        type: Date,
-        required: false
-    },
     otpCode: {
-        type: String,
-        unique: true,
-        default: false
+        type: mongoose_1.Schema.Types.String,
+        trim: true,
+        select: false,
+        required: true,
     },
     otpCodeExpires: {
         type: Date,
@@ -66,7 +47,7 @@ const schema = new mongoose_1.Schema({
     isVerified: {
         type: mongoose_1.Schema.Types.Boolean,
         default: false
-    }
+    },
 }, {
     timestamps: true,
     versionKey: false,

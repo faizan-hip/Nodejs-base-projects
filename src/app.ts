@@ -1,14 +1,19 @@
 import express, { Application } from "express";
 import bodyParser from "body-parser";
-import { authRoutes } from "./module/auth";
-
+import { authRoutes } from "./module/adminAuth";
+import cookieParser from "cookie-parser";
+import { userAuth } from "./module/userAuth/routes";
 
 
 
 const app: Application = express();
 
-
-
+app.use(
+  bodyParser.json({
+    limit: "50mb",
+  })
+);
+app.use(cookieParser());
 app.use(
     bodyParser.urlencoded({
       limit: "50mb",
@@ -19,7 +24,7 @@ app.use(
 
   app.use("/api/v1", [
     authRoutes,
-    // adminRoutes,
+    userAuth
     // categoryRoutes,
     // dishRoutes,
     // orderRoutes,
