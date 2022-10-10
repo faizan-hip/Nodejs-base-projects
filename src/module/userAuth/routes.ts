@@ -3,8 +3,8 @@ import * as AuthController from "./controller";
 
 
 
-export const authRoutes = Router();
-authRoutes.post(
+export const userAuth = Router();
+userAuth.post(
   "/auth/register",
 
   AuthController.registerUser

@@ -11,3 +11,22 @@ authRoutes.post(
   validator(rules.register, ValidationSource.BODY),
   AuthController.registerAdmin
 );
+
+authRoutes.post(
+  "/auth/loginAdmin",
+  validator(rules.login, ValidationSource.BODY),
+  AuthController.loginAdmin 
+);
+
+authRoutes.post(
+  "/auth/verfiOtp",
+ 
+  AuthController.verfiRegisterUserOtp
+);
+
+
+authRoutes.put(
+  "/auth/Admin/:id",
+ 
+  AuthController.updateAdmin
+);

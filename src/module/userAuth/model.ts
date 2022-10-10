@@ -1,9 +1,9 @@
 import { model, Schema, Document } from "mongoose";
 
-export const DOCUMENT_NAME = "Admin";
-export const COLLECTION_NAME = "admins";
+export const DOCUMENT_NAME = "User";
+export const COLLECTION_NAME = "users";
 
-export default interface Admin extends Document {
+export default interface User extends Document {
   fullName: string;
   phone: string;
   email: string;
@@ -15,13 +15,13 @@ export default interface Admin extends Document {
 
 const schema = new Schema(
   {
-    fullName: {
+    firstName: {
       type: Schema.Types.String,
       required: true,
       trim: true,
       unique: true,
     },
-    phone: {
+    lastName: {
       type: Schema.Types.String,
       required: true,
       trim: true,
@@ -31,6 +31,12 @@ const schema = new Schema(
       required: true,
       unique: true,
       trim: true,
+    },
+    phone:{
+      type: Schema.Types.String,
+      trim: true,
+      select: false,
+      required: true,
     },
     password: {
       type: Schema.Types.String,
@@ -49,15 +55,15 @@ const schema = new Schema(
       select: false,
       required: true,
     },
-    isVerified:{
-      type: Schema.Types.Boolean,
-      default:false
-    },
+    
     otpCodeExpires:{
       type: Date, 
       default:new Date
     },
- 
+    isVerified:{
+      type: Schema.Types.Boolean,
+      default:false
+    },
   },
   
   {
@@ -66,4 +72,4 @@ const schema = new Schema(
   }
 );
 
-export const AdminModel = model<Admin>(DOCUMENT_NAME, schema, COLLECTION_NAME);
+export const UserModel = model<User>(DOCUMENT_NAME, schema, COLLECTION_NAME);

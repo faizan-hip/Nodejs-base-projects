@@ -22,17 +22,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.authRoutes = void 0;
+exports.userAuth = void 0;
 const express_1 = require("express");
 const AuthController = __importStar(require("./controller"));
-const validators_1 = __importStar(require("../../utils/validators"));
-const rules_1 = __importDefault(require("./rules"));
-exports.authRoutes = (0, express_1.Router)();
-exports.authRoutes.post("/auth/registerAdmin", (0, validators_1.default)(rules_1.default.register, validators_1.ValidationSource.BODY), AuthController.registerAdmin);
-exports.authRoutes.post("/auth/loginAdmin", (0, validators_1.default)(rules_1.default.login, validators_1.ValidationSource.BODY), AuthController.loginAdmin);
-exports.authRoutes.post("/auth/verfiOtp", AuthController.verfiRegisterUserOtp);
-exports.authRoutes.put("/auth/Admin/:id", AuthController.updateAdmin);
+exports.userAuth = (0, express_1.Router)();
+exports.userAuth.post("/auth/register", AuthController.registerUser);

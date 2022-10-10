@@ -9,16 +9,21 @@ import {
 //   RefreshToken,
   notFoundHandler,
 } from "../../utils/responseHandler";
-
+import User, { UserModel } from "./model";
 
 export const registerUser = async (
     req: express.Request,
     res: express.Response
   ): Promise<void> => {
 
-    console.log("user");
+    console.log("user",req.body);
+    const findUser = await UserModel.findOne({email:req.body.email,phone:req.body.phone})
+    console.log("findUser",findUser)
     try {
-   
+   if(!findUser)
+   {
+
+   }
       }
      catch (err) {
      

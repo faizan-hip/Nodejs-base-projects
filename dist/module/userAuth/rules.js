@@ -6,13 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const joi_1 = __importDefault(require("joi"));
 exports.default = {
     register: joi_1.default.object().keys({
-        fullName: joi_1.default.string().required(),
+        firstName: joi_1.default.string().required(),
+        lastName: joi_1.default.string().required(),
+        email: joi_1.default.string().email().required(),
         phone: joi_1.default.string().required(),
-        email: joi_1.default.string().email().required(),
         password: joi_1.default.string().required(),
-    }),
-    login: joi_1.default.object().keys({
-        email: joi_1.default.string().email().required(),
-        password: joi_1.default.string().required(),
-    }),
+    })
 };
