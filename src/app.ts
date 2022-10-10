@@ -1,13 +1,17 @@
 import express, { Application } from "express";
 import bodyParser from "body-parser";
-import { authRoutes } from "./module/auth";
+import { authRoutes } from "./module/adminAuth";
 
 
 
 
 const app: Application = express();
 
-
+app.use(
+  bodyParser.json({
+    limit: "50mb",
+  })
+);
 
 app.use(
     bodyParser.urlencoded({
